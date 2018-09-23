@@ -1,0 +1,12 @@
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.Form1.resources
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.Properties.Resources.resources
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.csproj.GenerateResource.cache
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.csproj.CoreCompileInputs.cache
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\bin\Debug\NewtonMethod.exe.config
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\bin\Debug\NewtonMethod.exe
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\bin\Debug\NewtonMethod.pdb
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\bin\Debug\Extreme.Numerics.Net40.dll
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.csproj.CopyComplete
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.exe
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.pdb
+D:\lessons\4-курс\РАТПО\Лабы\NewtonMethod\NewtonMethod\NewtonMethod\obj\Debug\NewtonMethod.csprojResolveAssemblyReference.cache
