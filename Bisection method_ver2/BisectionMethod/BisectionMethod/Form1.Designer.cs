@@ -170,6 +170,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(120, 20);
             this.textBox6.TabIndex = 21;
+            this.textBox6.Text = "abs(b-a)";
             // 
             // label6
             // 
@@ -187,6 +188,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(120, 20);
             this.textBox7.TabIndex = 19;
+            this.textBox7.Text = "k";
             // 
             // label7
             // 
@@ -204,6 +206,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(120, 20);
             this.textBox8.TabIndex = 17;
+            this.textBox8.Text = "elapsed_time";
             // 
             // label8
             // 
@@ -221,6 +224,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(120, 20);
             this.textBox9.TabIndex = 15;
+            this.textBox9.Text = "F(x*)";
             // 
             // label9
             // 
@@ -238,6 +242,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(120, 20);
             this.textBox10.TabIndex = 13;
+            this.textBox10.Text = "x*";
             // 
             // label10
             // 
@@ -264,7 +269,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(120, 20);
             this.textBox11.TabIndex = 24;
-            this.textBox11.Text = "100";
+            this.textBox11.Text = "50";
             this.textBox11.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox11_KeyPress);
             // 
             // label11

@@ -39,7 +39,7 @@ namespace NewtonMethod
             decimal x, xn;
             decimal f, fd;
 
-            int error=0; //error=1: Остановка по времени, error=2; Остановка по итерации, error=3: Решения найдена с заданной точностью
+            int cond=0; //cond=1: Остановка по времени, cond=2; Остановка по итерации, cond=3: Решения найдена с заданной точностью, cond=4: деление на ноль
 
             x = Convert.ToDecimal(x_text.Text);
             string F_text = func_text.Text;
@@ -51,8 +51,9 @@ namespace NewtonMethod
 
             stopwatch.Start();
             pb.Value = 0;
-         
+
             FD_text = Fd(F_text);
+            //FD_text = "2*x - 4*cos(x)";
 
             decimal h;
            
@@ -61,54 +62,57 @@ namespace NewtonMethod
             {
                 iter++;
                 pb.Value++;
-
                 xn = x;
                 f = Fx(F_text, x);
                 fd = Fx(FD_text, x);
-                h = (f / fd);
-                x = xn - h;
-
-                if (max_time <= Convert.ToInt16(stopwatch.ElapsedMilliseconds) && (xn - x) > Tol) //Проверка на время
+                if (fd == 0)
+                    cond = 4;
+                else
                 {
-                    stopwatch.Stop();
-                    DialogResult dr = MessageBox.Show("Время вышло. Продолжить вычисление? Будет добавлено " + max_time2 + " миллисекунд", "Продолжить вычисления?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr == DialogResult.No)
-                    {
-                        error = 1;
-                    }
-                    else if (dr == DialogResult.Yes)
-                    {
-                        max_time += max_time2;
-                        maxtime_text.Text = max_time.ToString();
-                        stopwatch.Start();
-                    }
-                }
+                    h = (f / fd);
+                    x = xn - h;
 
-                if (iter >= max_iter && (xn - x) > Tol) //проверка на итерацию
-                {
-                    stopwatch.Stop();
-                    DialogResult dr = MessageBox.Show("Указанная точность за " + iter + " итераций не достигнута.Продолжить вычисление ? Будет добавлено " + max_iter + " итераций.", "Продолжить вычисления ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dr == DialogResult.No)
+                    if (max_time <= Convert.ToInt16(stopwatch.ElapsedMilliseconds) && (xn - x) > Tol) //Проверка на время
                     {
-                        error = 2;
+                        stopwatch.Stop();
+                        DialogResult dr = MessageBox.Show("Время вышло. Продолжить вычисление? Будет добавлено " + max_time2 + " миллисекунд", "Продолжить вычисления?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.No)
+                        {
+                            cond = 1;
+                        }
+                        else if (dr == DialogResult.Yes)
+                        {
+                            max_time += max_time2;
+                            maxtime_text.Text = max_time.ToString();
+                            stopwatch.Start();
+                        }
                     }
-                    else if (dr == DialogResult.Yes)
+
+                    if (iter >= max_iter && (xn - x) > Tol) //проверка на итерацию
                     {
-                        max_iter = max_iter + max_iter2;
-                        pb.Maximum = max_iter + 1;
-                        maxiter_text.Text = (max_iter).ToString();
-                        stopwatch.Start();
+                        stopwatch.Stop();
+                        DialogResult dr = MessageBox.Show("Указанная точность за " + iter + " итераций не достигнута.Продолжить вычисление ? Будет добавлено " + max_iter + " итераций.", "Продолжить вычисления ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (dr == DialogResult.No)
+                        {
+                            cond = 2;
+                        }
+                        else if (dr == DialogResult.Yes)
+                        {
+                            max_iter = max_iter + max_iter2;
+                            pb.Maximum = max_iter + 1;
+                            maxiter_text.Text = (max_iter).ToString();
+                            stopwatch.Start();
+                        }
                     }
+                    if ((xn - x) <= Tol)  //Проверка на точность
+                        cond = 3;
                 }
-                if ((xn - x) <= Tol)  //Проверка на точность
-                    error = 3;
                 
-                
-            } while (error==0);
+            } while (cond==0);
 
             stopwatch.Stop();
 
-            message_result = error;
+            message_result = cond;
             Der.Text = FD_text;
             f_result = Fx(F_text, x);
             df_result = Fx(FD_text, x);
